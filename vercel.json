@@ -47,7 +47,7 @@
     }
   ],
   "env": {
-    "DATABASE_URL": "@database_url",
-    "DATABASE_PWD": "@database_pwd"
+    "DATABASE_URL": "",
+    "DATABASE_PWD": ""
   }
 }
