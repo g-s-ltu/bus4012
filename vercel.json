@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/health",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/api/register",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/api/login",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/api/users/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/frontend/assets/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "DATABASE_PWD": "@database_pwd"
+  }
+}
