@@ -15,23 +15,11 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "api/index.py"
-    },
-    {
       "src": "/health",
       "dest": "api/index.py"
     },
     {
-      "src": "/api/register",
-      "dest": "api/index.py"
-    },
-    {
-      "src": "/api/login",
-      "dest": "api/index.py"
-    },
-    {
-      "src": "/api/users/(.*)",
+      "src": "/api/(.*)",
       "dest": "api/index.py"
     },
     {
